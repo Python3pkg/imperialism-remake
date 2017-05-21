@@ -72,7 +72,7 @@ def main():
         user_folder = os.path.join(os.getenv('USERPROFILE'), 'Imperialism Remake User Data')
     else:
         user_folder = 'User Data'
-    print('user data stored in: {}'.format(user_folder))
+    print(('user data stored in: {}'.format(user_folder)))
 
     # if not exist, create user folder
     if not os.path.isdir(user_folder):

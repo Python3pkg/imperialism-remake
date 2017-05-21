@@ -36,15 +36,15 @@ class LandUnit:
         :param unit_type: LandUnitType
         :param nation: Nation
         """
-        if not isinstance(unit_strength, int) or unit_strength not in range(0, 101):
+        if not isinstance(unit_strength, int) or unit_strength not in list(range(0, 101)):
             raise ValueError('unit_strength must be an int in range(0,100)')
-        if not isinstance(experience_level, int) or experience_level not in range(1, 5):
+        if not isinstance(experience_level, int) or experience_level not in list(range(1, 5)):
             raise ValueError('experience_level must be an int in range(1,5)')
         if not isinstance(unit_type, LandUnitType) or unit_type is None:
             raise ValueError('unit_type must be a LandUnitType instance and not null')
         if not isinstance(nation, Nation) or nation is None:
             raise ValueError('nation must be a Nation instance and not null')
-        if not isinstance(moral, int) or moral not in range(0, 101):
+        if not isinstance(moral, int) or moral not in list(range(0, 101)):
             raise ValueError('moral must be an int in range(0,100)')
         self.unitStrength = unit_strength
         self.experienceLevel = experience_level

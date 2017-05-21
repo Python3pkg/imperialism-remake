@@ -57,7 +57,7 @@ def receives_chat(client, channel, action, message):
     Chat received
     """
     if action == constants.M.CHAT_MESSAGE:
-        print('client {} received chat {}'.format(client, message))
+        print(('client {} received chat {}'.format(client, message)))
 
 
 def clientA_chats():

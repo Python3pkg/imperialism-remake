@@ -123,7 +123,7 @@ class ServerManager(QtCore.QObject):
                 break
         # noinspection PyUnboundLocalVariable
         client.client_id = new_id
-        print('new client with id {}'.format(new_id))
+        print(('new client with id {}'.format(new_id)))
 
         # add some general channels and receivers
         # TODO the receivers should be in another module eventually
@@ -254,7 +254,7 @@ def scenario_core_titles():
         scenario_titles.append(properties[constants.ScenarioProperty.TITLE])
 
     # zip files and titles together
-    scenarios = zip(scenario_titles, scenario_files)
+    scenarios = list(zip(scenario_titles, scenario_files))
 
     # sort them
     scenarios = sorted(scenarios)  # default sort order is by first element anyway
@@ -271,7 +271,7 @@ def scenario_preview(scenario_file_name):
 
     # TODO existing? can be loaded?
     scenario = Scenario.from_file(scenario_file_name)
-    print('reading the file took {}s'.format(time.clock() - t0))
+    print(('reading the file took {}s'.format(time.clock() - t0)))
 
     preview = {'scenario': scenario_file_name}
 
@@ -301,6 +301,6 @@ def scenario_preview(scenario_file_name):
                 nations_map[row * columns + column] = nation_id
     preview['map'] = nations_map
 
-    print('generating preview took {}s'.format(time.clock() - t0))
+    print(('generating preview took {}s'.format(time.clock() - t0)))
 
     return preview

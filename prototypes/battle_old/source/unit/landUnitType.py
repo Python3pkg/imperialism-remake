@@ -55,17 +55,17 @@ class LandUnitType:
             raise ValueError('graphic_stand must be a QPixmap instance and not null')
         if not isinstance(name, str) or name == '':
             raise ValueError('name must be a non empty string')
-        if not isinstance(evolution_level, int) or evolution_level not in range(1, 4):
+        if not isinstance(evolution_level, int) or evolution_level not in list(range(1, 4)):
             raise ValueError('evolution_level must be an int in  {1,2,3}')
         if not isinstance(description, str) or description == '':
             raise ValueError('description must be a non empty string')
         if not isinstance(officier, bool):
             raise ValueError('officier must be a boolean')
-        if not isinstance(attack_strength, int) or attack_strength not in range(0, 21):
+        if not isinstance(attack_strength, int) or attack_strength not in list(range(0, 21)):
             raise ValueError('attack_strength must be an int in range(0,20)')
-        if (not isinstance(fire_range, int) or fire_range not in range(2, 9)) and not officier:
+        if (not isinstance(fire_range, int) or fire_range not in list(range(2, 9))) and not officier:
             raise ValueError('fire_range must be an int in range(2,8)')
-        if not isinstance(speed, int) or speed not in range(2, 11):
+        if not isinstance(speed, int) or speed not in list(range(2, 11)):
             raise ValueError('speed must be an int in range(2,10)')
         if not isinstance(creation_cost, float) or creation_cost < 0:
             raise ValueError('creation_cost must be an float>0 ' + str(creation_cost))

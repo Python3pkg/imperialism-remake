@@ -30,5 +30,5 @@ config = {
 
 # save
 file = constants.SCENARIO_CLIENT_STANDARD_FILE
-print('write to {}'.format(file))
+print(('write to {}'.format(file)))
 utils.write_as_yaml(file, config)

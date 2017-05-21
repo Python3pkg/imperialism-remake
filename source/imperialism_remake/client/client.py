@@ -124,10 +124,10 @@ class StartScreen(QtWidgets.QWidget):
         image_map = utils.read_as_yaml(image_map_file)
 
         # security check, they have to be the same
-        if actions.keys() != image_map.keys():
+        if list(actions.keys()) != list(image_map.keys()):
             raise RuntimeError('Start screen hot map info file ({}) corrupt.'.format(image_map_file))
 
-        for k, v in image_map.items():
+        for k, v in list(image_map.items()):
             # add action from our predefined action dictionary
             pixmap = QtGui.QPixmap(constants.extend(constants.GRAPHICS_UI_FOLDER, v['overlay']))
             map_item = MapItem(view, pixmap, label=subtitle, description=v['label'])

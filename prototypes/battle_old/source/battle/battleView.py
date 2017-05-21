@@ -51,7 +51,7 @@ class MainQGraphicsScene(QGraphicsScene):
         if self.battleView is not None:
             x, y = self.battleView.map.position_to_grid_position(position)
             if x >= 0 and y >= 0:
-                print('TODO mouse click on grid ' + str(x) + ';' + str(y))
+                print(('TODO mouse click on grid ' + str(x) + ';' + str(y)))
 
     def set_battle_view(self, battle_view):
         self.battleView = battle_view

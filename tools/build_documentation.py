@@ -18,7 +18,7 @@ def sphinx_build(directory):
     :return:
     """
 
-    print('build directory {}'.format(directory))
+    print(('build directory {}'.format(directory)))
 
     # output directory and builder name
     out_directory = os.path.join(directory, '_build')

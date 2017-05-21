@@ -276,7 +276,7 @@ class SinglePlayerScenarioPreview(QtWidgets.QWidget):
         # unpack message
         nations = [(message['nations'][key][constants.NationProperty.NAME], key) for key in message['nations']]
         nations = sorted(nations)  # by first element, which is the name
-        nation_names, self.nation_ids = zip(*nations)
+        nation_names, self.nation_ids = list(zip(*nations))
 
         # fill the widget with useful stuff
         layout = QtWidgets.QGridLayout(self)
@@ -341,7 +341,7 @@ class SinglePlayerScenarioPreview(QtWidgets.QWidget):
         item.setZValue(0)
 
         # for all nations
-        for nation_id, nation in message['nations'].items():
+        for nation_id, nation in list(message['nations'].items()):
 
             # get nation color
             color_string = nation[constants.NationProperty.COLOR]
@@ -453,7 +453,7 @@ class SinglePlayerScenarioTitleSelection(QtWidgets.QGroupBox):
         client.remove_channel(channel)
 
         # unpack content
-        scenario_titles, self.scenario_files = zip(*content)
+        scenario_titles, self.scenario_files = list(zip(*content))
 
         # create list widget
         self.list = QtWidgets.QListWidget()

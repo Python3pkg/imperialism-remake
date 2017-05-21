@@ -106,7 +106,7 @@ class NetworkClient(lib_network.ExtendedTcpSocket):
 
         :param letter: The letter that was received
         """
-        print('network client received letter: {}'.format(letter))
+        print(('network client received letter: {}'.format(letter)))
         channel = letter['channel']
 
         # do we have receivers in this category

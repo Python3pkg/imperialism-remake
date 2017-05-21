@@ -94,7 +94,7 @@ class ExtendedTcpSocket(QtCore.QObject):
         # TODO only if not yet connected
         if host == 'local':
             host = SCOPE['local']
-        print('client connects to host={} port={}'.format(host, port))
+        print(('client connects to host={} port={}'.format(host, port)))
         self.socket.connectToHost(host, port)
         self.socket.waitForConnected(2000)
 
@@ -127,7 +127,7 @@ class ExtendedTcpSocket(QtCore.QObject):
             # decode from utf-8 bytes to unicode and deserialize from yaml
             value = yaml.load(uncompressed.decode())
 
-            print('socket received {}'.format(value))
+            print(('socket received {}'.format(value)))
 
             # print('connection id {} received {}'.format(self.id, value))
             self.received.emit(value)
@@ -141,7 +141,7 @@ class ExtendedTcpSocket(QtCore.QObject):
         if not self.socket.state() == QtNetwork.QAbstractSocket.ConnectedState:
             raise RuntimeError('Try to send on unconnected socket.')
 
-        print('socket send {}'.format(value))
+        print(('socket send {}'.format(value)))
         # serialize value to yaml
         serialized = yaml.dump(value, allow_unicode=True)
 
@@ -186,7 +186,7 @@ class ExtendedTcpServer(QtCore.QObject):
 
         :param socket_error: QAbstractSocket::SocketError
         """
-        print('accept error {}'.format(socket_error))
+        print(('accept error {}'.format(socket_error)))
 
     def start(self, port, scope: SCOPE = 'local'):
         """
@@ -196,10 +196,10 @@ class ExtendedTcpServer(QtCore.QObject):
         :param scope: The scope (local/any).
         """
         host = SCOPE[scope]
-        print('server listens on host={} port={}'.format(host, port))
+        print(('server listens on host={} port={}'.format(host, port)))
         if not self.tcp_server.listen(host, port):
             raise RuntimeError('Network error: cannot listen')
-        print('is listening {}'.format(self.tcp_server.isListening()))
+        print(('is listening {}'.format(self.tcp_server.isListening())))
 
     def is_listening(self):
         """

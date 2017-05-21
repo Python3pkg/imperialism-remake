@@ -40,5 +40,5 @@ rules['terrain.names'] = terrain_names
 
 # save
 file = constants.SCENARIO_RULESET_STANDARD_FILE
-print('write to {}'.format(file))
+print(('write to {}'.format(file)))
 utils.write_as_yaml(file, rules)

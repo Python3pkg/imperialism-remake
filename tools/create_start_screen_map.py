@@ -64,5 +64,5 @@ map['options'] = {
 
 # write
 file_name = os.path.join(c.GRAPHICS_UI_FOLDER, 'start.overlay.info')
-print('write to {}'.format(file_name))
+print(('write to {}'.format(file_name)))
 u.write_as_yaml(file_name, map)

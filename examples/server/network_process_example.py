@@ -42,7 +42,7 @@ def receive(client, channel, action, content):
     Receives the answer.
     """
     client.disconnect_from_channel(channel, receive)
-    print('received on channel {} with action {} and content {}'.format(channel, action, content))
+    print(('received on channel {} with action {} and content {}'.format(channel, action, content)))
 
 def send_shutdown():
     """

@@ -94,7 +94,7 @@ def load_options(file_name):
         options = {}
 
     # delete entries that are not in Constants.Options
-    remove = [o for o in options.keys() if o not in constants.Options]
+    remove = [o for o in list(options.keys()) if o not in constants.Options]
     for o in remove:
         del options[o]
 

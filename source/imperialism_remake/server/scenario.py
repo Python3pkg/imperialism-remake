@@ -267,7 +267,7 @@ class Scenario(QtCore.QObject):
         :param key:
         :param value:
         """
-        if key not in constants.ScenarioProperty.__members__.values():
+        if key not in list(constants.ScenarioProperty.__members__.values()):
             raise RuntimeError('Not a valid ScenarioProperty: {}.'.format(key))
         self._properties[key] = value
 
@@ -316,7 +316,7 @@ class Scenario(QtCore.QObject):
         """
         if province not in self._provinces:
             raise RuntimeError('Unknown province {}.'.format(province))
-        if key not in constants.ProvinceProperty.__members__.values():
+        if key not in list(constants.ProvinceProperty.__members__.values()):
             raise RuntimeError('Not a valid ProvinceProperty: {}.'.format(key))
         self._provinces[province][key] = value
 
@@ -346,7 +346,7 @@ class Scenario(QtCore.QObject):
         """
         Return a list of ids for all provinces. A province is just an id for us.
         """
-        return self._provinces.keys()
+        return list(self._provinces.keys())
 
     def provinces_of_nation(self, nation):
         """
@@ -386,7 +386,7 @@ class Scenario(QtCore.QObject):
         """
         Return a list of ids for all nations. A nation is just an id for us.
         """
-        return self._nations.keys()
+        return list(self._nations.keys())
 
     def add_nation(self):
         """
@@ -426,7 +426,7 @@ class Scenario(QtCore.QObject):
         """
         if nation not in self._nations:
             raise RuntimeError('Unknown nation {}.'.format(nation))
-        if key not in constants.NationProperty.__members__.values():
+        if key not in list(constants.NationProperty.__members__.values()):
             raise RuntimeError('Not a valid NationProperty: {}.'.format(key))
 
         self._nations[nation][key] = value
